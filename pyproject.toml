@@ -1,0 +1,17 @@
+[project]
+name = "assignment-3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "LTWaffles86", email = "hl1254@scarletmail.rutgers.edu" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+assignment-3 = "assignment_3:main"
+
+[build-system]
+requires = ["uv_build>=0.12.16,<0.13.0"]
+build-backend = "uv_build"
