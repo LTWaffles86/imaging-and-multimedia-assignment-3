@@ -7,7 +7,11 @@ authors = [
     { name = "LTWaffles86", email = "hl1254@scarletmail.rutgers.edu" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.11.2",
+    "opencv-python>=5.0.0.93",
+    "pillow>=13.0.0",
+]
 
 [project.scripts]
 assignment-3 = "assignment_3:main"
