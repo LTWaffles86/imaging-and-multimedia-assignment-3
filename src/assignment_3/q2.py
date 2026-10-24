@@ -1,11 +1,11 @@
-import file_management
-
 from pathlib import Path
 
 import cv2 as cv
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
+
+import filemanagement as fm
 
 ireland_path = Path("images/ireland-03gray.tif")
 
@@ -67,7 +67,7 @@ prewitt_x = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]], dtype=np.int8)
 prewitt_y = np.array([[-1, -1, -1], [0, 0, 0], [1, 1, 1]], dtype=np.int8)
 ireland_prewitt = highlight_edges(ireland_img, prewitt_x, prewitt_y, 0.5)
 
-ireland_prewitt.save(output_path(ireland_path, "prewitt"))
+ireland_prewitt.save(fm.output_path(ireland_path, "prewitt"))
 plt.imshow(ireland_prewitt, cmap="gray")
 plt.show()
 
@@ -75,7 +75,7 @@ plt.show()
 sobel_x = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], dtype=np.int8)
 sobel_y = np.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]], dtype=np.int8)
 ireland_sobel = highlight_edges(ireland_img, sobel_x, sobel_y, 0.5)
-ireland_sobel.save(output_path(ireland_path, "sobel"))
+ireland_sobel.save(fm.output_path(ireland_path, "sobel"))
 plt.imshow(ireland_sobel, cmap="gray")
 plt.show()
 
@@ -86,22 +86,22 @@ plt.imshow(amsterdam_img)
 plt.show()
 
 amsterdam_prewitt = highlight_edges_color(amsterdam_img, prewitt_x, prewitt_y, 0.5)
-amsterdam_prewitt.save(output_path(amsterdam_path, "prewitt"))
+amsterdam_prewitt.save(fm.output_path(amsterdam_path, "prewitt"))
 plt.imshow(amsterdam_prewitt)
 plt.show()
 
 amsterdam_sobel = highlight_edges_color(amsterdam_img, sobel_x, sobel_y, 0.5)
-amsterdam_sobel.save(output_path(amsterdam_path, "sobel"))
+amsterdam_sobel.save(fm.output_path(amsterdam_path, "sobel"))
 plt.imshow(amsterdam_sobel)
 plt.show()
 
 
 amsterdam_prewitt_dark = darken_edges_color(amsterdam_img, prewitt_x, prewitt_y, 0.5)
-amsterdam_prewitt_dark.save(output_path(amsterdam_path, "prewitt_dark"))
+amsterdam_prewitt_dark.save(fm.output_path(amsterdam_path, "prewitt_dark"))
 plt.imshow(amsterdam_prewitt_dark)
 plt.show()
 
 amsterdam_sobel_dark = darken_edges_color(amsterdam_img, sobel_x, sobel_y, 0.5)
-amsterdam_sobel_dark.save(output_path(amsterdam_path, "sobel_dark"))
+amsterdam_sobel_dark.save(fm.output_path(amsterdam_path, "sobel_dark"))
 plt.imshow(amsterdam_sobel_dark)
 plt.show()

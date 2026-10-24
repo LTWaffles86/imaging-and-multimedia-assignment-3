@@ -9,8 +9,8 @@ import filemanagement as fm
 
 selfie_path = Path("images/selfie.jpg")
 
-x = 406
-y = 155
+x = 424
+y = 152
 w = 974
 h = 1351
 
