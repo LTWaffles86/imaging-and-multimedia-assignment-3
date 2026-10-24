@@ -1,3 +1,5 @@
+import file_management
+
 from pathlib import Path
 
 import cv2 as cv
@@ -6,16 +8,6 @@ import numpy as np
 from PIL import Image
 
 ireland_path = Path("images/ireland-03gray.tif")
-
-output_dir = Path("images/output")
-if not output_dir.exists():
-    output_dir.mkdir()
-
-
-def output_path(input_path: Path, suffix: str) -> Path:
-    return output_dir.joinpath(input_path.name).with_stem(
-        input_path.stem + "_" + suffix
-    )
 
 
 ireland_img = Image.open(ireland_path).convert("L")

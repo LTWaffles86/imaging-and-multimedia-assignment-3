@@ -5,10 +5,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 
+import filemanagement as fm
+
 selfie_path = Path("images/selfie.jpg")
-output_path = selfie_path.parent.joinpath("output")
-if not output_path.exists():
-    output_path.mkdir()
 
 x = 406
 y = 155
@@ -26,7 +25,7 @@ for k in [15, 25, 50]:
     out[y : y + h, x : x + w] = blurred
 
     blurred_img = Image.fromarray(out)
-    blurred_img.save(output_path.joinpath(f"blurred_selfie_{k}.jpg"))
+    blurred_img.save(fm.output_path(selfie_path, f"blurred_{k}"))
 
     plt.imshow(blurred_img)
     plt.show()
@@ -40,7 +39,7 @@ for k in [15, 25, 50]:
 
     out[y : y + h, x : x + w] = pixelated
     pixelated_img = Image.fromarray(out)
-    pixelated_img.save(output_path.joinpath(f"pixelated_selfie_{k}.jpg"))
+    pixelated_img.save(fm.output_path(selfie_path, f"pixelated_{k}"))
 
     plt.imshow(pixelated_img)
     plt.show()
